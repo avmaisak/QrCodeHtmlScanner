@@ -3,7 +3,7 @@ This is a mirror.
 Please, visit https://dev.s1.rus-bit.com/RusBit/QrCodeHtmlScanner
 
 # QrCodeHtmlScanner
-Simple Qr Code scanner, based on instascan 
+Simple Qr Code scanner, based on [instascan](https://github.com/schmich/instascan) 
 
 Supported platforms (tested)
 - IOS11, Safari
