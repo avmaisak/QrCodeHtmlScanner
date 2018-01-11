@@ -1,3 +1,7 @@
+This is a mirror.
+
+Please, visit https://dev.s1.rus-bit.com/RusBit/QrCodeHtmlScanner
+
 # QrCodeHtmlScanner
 Simple Qr Code scanner, based on instascan 
 
