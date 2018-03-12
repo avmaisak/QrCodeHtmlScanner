@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>QR Code Scanner Example</title>
+	
+	<link rel="stylesheet" href="https://rawgit.com/rus-bit/Matrioshka/master/dist/css/min/matrioshka.min.css" />
+	<link rel="stylesheet" href="https://rawgit.com/rus-bit/Matrioshka/master/dist/css/min/matrioshka.colors.min.css" />
+	<link rel="stylesheet" href="https://rawgit.com/rus-bit/Matrioshka/master/dist/css/min/matrioshka.animations.min.css" />
+	<link rel="stylesheet" href="https://rawgit.com/rus-bit/Matrioshka/master/dist/css/min/matrioshka.min.css" />
+	<link rel="stylesheet" href="https://rawgit.com/rus-bit/Matrioshka/master/dist/icons/css/matrioshkaIcons.min.css" />
+	
+  </head>
+  
+  <body class="cont">
+    
+    <h3 class="txt-cntr mar-top-2">Simple QR Code Scanner Example</h3>
+
+    <article class="pad-2">
+        <section>
+            <div class="frm-grp txt-cntr">
+				<label class="disp-blck">Choose camera:</label>
+				<select id="webcameraChanger" onchange="cameraChange($(this).val());" class="frm-ctrl mar-btm-2"></select>
+			</div>
+            <!-- webcamera view component -->
+            <video id="webcameraPreview" playsinline autoplay controls muted loop style="width: 100%;"></video>
+        </section>
+    </article>
+
+    <script type="text/javascript" src="https://rawgit.com/RusBit/QrCodeHtmlScanner/master/external/jquery.min.js"></script>
+    <script type="text/javascript" src="https://rawgit.com/RusBit/QrCodeHtmlScanner/master/external/adapter.min.js"></script>
+    <script type="text/javascript" src="https://rawgit.com/RusBit/QrCodeHtmlScanner/master/external/instascan.js"></script>
+    <script type="text/javascript" src="https://rawgit.com/RusBit/QrCodeHtmlScanner/master/src/QrCodeScanner.js"></script>
+    <script type="text/javascript">
+        //HTML video component for web camera
+        var videoComponent = $("#webcameraPreview");
+        //HTML select component for cameras change
+        var webcameraChanger = $("#webcameraChanger");
+        var options = {};
+        //init options for scanner
+        options = initVideoObjectOptions("webcameraPreview");
+        var cameraId = 0;
+
+        initScanner(options);
+
+        initAvaliableCameras(
+            webcameraChanger,
+            function () {
+                cameraId = parseInt(getSelectedCamera(webcameraChanger));
+            }
+        );
+
+        initCamera(cameraId);
+
+
+        scanStart(function (data){
+            alert(data);
+        });
+
+    </script>
+
+  </body>
+</html>
